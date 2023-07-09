@@ -1,0 +1,64 @@
+.popup.left ul li,
+.popup.city ul li {
+  padding: 1.4vmin 0;
+  cursor: pointer;
+}
+
+.popup.left ul li:hover,
+.popup.city ul li:hover {
+  background: #f8f8f8;
+}
+
+li.unactive {
+  font-weight: 400;
+}
+
+li.active {
+  font-weight: bold;
+}
+
+.popup.right li {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  padding: 2vmin 0;
+  border-bottom: 1px solid rgb(220, 223, 233);
+}
+
+.popup.city ul li {
+  z-index: -1;
+}
+
+.popup.city ul li::first-letter {
+  text-transform: uppercase;
+}
+
+.right-popup-left-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  position: relative;
+}
+
+.right-popup-right-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  column-gap: 2vmin;
+}
+
+.right-popup-right-content i {
+  color: rgb(19, 41, 104);
+  font-size: 3vw;
+  cursor: pointer;
+}
+
+.right-popup-right-content i.inactive {
+  color: rgb(220, 223, 233);
+  cursor: default;
+}
+
+.right-popup-left-content p,
+.right-popup-right-content p {
+  font-weight: 400;
+}

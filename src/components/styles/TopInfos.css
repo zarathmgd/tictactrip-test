@@ -1,0 +1,27 @@
+.top-infos {
+  position: relative;
+  display: flex;
+  gap: 2vmin;
+  font-size: 1vw;
+  font-weight: 500;
+  color: var(--topInfoColor);
+}
+
+.infos {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1vmin;
+}
+
+.infos.right {
+  font-weight: 700;
+}
+
+.fa-circle-minus {
+  left: 0;
+}
+
+.fa-circle-plus {
+  right: 0;
+}
