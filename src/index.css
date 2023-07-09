@@ -241,7 +241,7 @@ input {
     gap: 5vmin;
   }
 
-  .top-infos {
+  .container .top-infos {
     font-size: 3vw;
     font-weight: 700;
   }
