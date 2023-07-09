@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from "react";
-import "./App.css";
-import TopRightInfos from "./components/TopRightInfos";
-import TopLeftInfos from "./components/TopLeftInfos";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import uuid from "react-uuid";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import TopRightInfos from "./components/TopRightInfos";
+import TopLeftInfos from "./components/TopLeftInfos";
 import Popup from "./components/Popup";
+import Bat from "./assets/bat.png";
 
 function App() {
   // State initialization
@@ -94,7 +94,7 @@ function App() {
 
   return (
     <>
-      <img src="../src/assets/bat.png" alt="bat-icon" />
+      <img src={Bat} alt="bat-icon" />
       <div className="container">
         <div className="top-infos">
           <TopLeftInfos reference={ref} isActive={isSelected} setIsActive={setIsSelected} />
