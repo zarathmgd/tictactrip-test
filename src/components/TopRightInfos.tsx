@@ -6,14 +6,14 @@ import ListElements from "./ListElements";
 import uuid from "react-uuid";
 
 export default function TopRightInfos({ reference }: { reference: any }) {
-  const { total } = useContext(AppContext);
+  const { total }: { total: number } = useContext(AppContext);
 
   const [arrow, setArrow] = useState<boolean>(false);
 
   const [isDiscount, setIsDiscount] = useState<boolean>(false);
 
-  const [passengersYouth] = useState([]);
-  const [passengersSenior] = useState([]);
+  const [passengersYouth] = useState<[]>([]);
+  const [passengersSenior] = useState<[]>([]);
 
   // These functions create an array and push indexes from 0-25 and 58-75. It avoids to write the select options one by one.
 
@@ -55,7 +55,7 @@ export default function TopRightInfos({ reference }: { reference: any }) {
                     <option value="Age" hidden>
                       Age
                     </option>
-                    {selectOptionsYouth.map((value) => {
+                    {selectOptionsYouth.map((value: number) => {
                       return (
                         <option value={value} key={uuid()}>
                           {value} {value === 1 ? "year" : "years"}
@@ -82,7 +82,7 @@ export default function TopRightInfos({ reference }: { reference: any }) {
                     <option value="Age" hidden>
                       Age
                     </option>
-                    {selectOptionsSenior.map((value) => {
+                    {selectOptionsSenior.map((value: number) => {
                       return (
                         <option value={value} key={uuid()}>
                           {value} {value === 1 ? "year" : "years"}

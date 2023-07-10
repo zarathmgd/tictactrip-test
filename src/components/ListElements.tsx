@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default function ListElements({ title, paragraph, passengers }: Props) {
-  const { total, setTotal } = useContext(AppContext);
+  const { total, setTotal }: { total: number; setTotal: (num: number) => void } = useContext(AppContext);
   const [count, setCount] = useState<number>(0);
 
   // These functions add or remove passengers from an array, and set the count of passengers per category

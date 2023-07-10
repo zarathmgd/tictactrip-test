@@ -1,11 +1,11 @@
 interface Props {
   arrow?: boolean;
-  setArrow?: any;
+  setArrow?: (bool: boolean) => void;
   isActive?: boolean;
-  setIsActive?: any;
-  reference?: any;
+  setIsActive?: (bool: boolean) => void;
+  reference?: React.MutableRefObject<null>;
   isDiscount?: boolean;
-  setIsDiscount?: any;
+  setIsDiscount?: (bool: boolean) => void;
   children?: any;
   popupClass?: string;
 }

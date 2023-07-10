@@ -2,10 +2,18 @@ import { useState } from "react";
 import Arrow from "./Arrow";
 import Popup from "./Popup";
 
-export default function TopLeftInfos({ isActive, setIsActive, reference }: { isActive: boolean; setIsActive: any; reference: any }) {
+export default function TopLeftInfos({
+  isActive,
+  setIsActive,
+  reference,
+}: {
+  isActive: boolean;
+  setIsActive: (bool: boolean) => void;
+  reference: React.MutableRefObject<null>;
+}) {
   const [arrow, setArrow] = useState<boolean>(false);
   const [value, setValue] = useState<string>("One-way");
-  const handleClick = (text: string) => {
+  const handleClick = (text: string): void => {
     setArrow(!arrow);
     setIsActive(!isActive);
     setValue(text);

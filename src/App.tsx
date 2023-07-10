@@ -11,34 +11,33 @@ import Bat from "./assets/bat.png";
 function App() {
   // State initialization
 
-  const [isSelected, setIsSelected] = useState(true);
-  const [isBtnActive, setIsBtnActive] = useState(false);
-  const [isPopupCityFrom, setIsPopupCityFrom] = useState(false);
-  const [isPopupCityTo, setIsPopupCityTo] = useState(false);
+  const [isSelected, setIsSelected] = useState<boolean>(true);
+  const [isBtnActive, setIsBtnActive] = useState<boolean>(false);
+  const [isPopupCityFrom, setIsPopupCityFrom] = useState<boolean>(false);
+  const [isPopupCityTo, setIsPopupCityTo] = useState<boolean>(false);
 
   const ref = useRef(null);
 
-  const [startDate, setStartDate] = useState(new Date());
-  const [returnDate, setReturnDate] = useState(new Date());
+  const [startDate, setStartDate] = useState<Date>(new Date());
+  const [returnDate, setReturnDate] = useState<Date>(new Date());
 
-  const [fromCityInputValue, setFromCityInputValue] = useState("");
-  const [toCityInputValue, setToCityInputValue] = useState("");
-  const [fromCities, setFromCities] = useState([]);
-  const [toCities, setToCities] = useState([]);
+  const [fromCityInputValue, setFromCityInputValue] = useState<string>("");
+  const [toCityInputValue, setToCityInputValue] = useState<string>("");
+  const [fromCities, setFromCities] = useState<{}[]>([]);
+  const [toCities, setToCities] = useState<{}[]>([]);
 
   // API Links connected to user input entry
 
-  const autocompleteFrom = `https://api.comparatrip.eu/cities/autocomplete/?q=${fromCityInputValue}`;
-  const autocompleteTo = `https://api.comparatrip.eu/cities/autocomplete/?q=${toCityInputValue}`;
-  const popularCities = `https://api.comparatrip.eu/cities/popular/5`;
-  const popularCitiesFrom = `https://api.comparatrip.eu/cities/popular/from/${fromCityInputValue}/5 `;
-
+  const autocompleteFrom: string = `https://api.comparatrip.eu/cities/autocomplete/?q=${fromCityInputValue}`;
+  const autocompleteTo: string = `https://api.comparatrip.eu/cities/autocomplete/?q=${toCityInputValue}`;
+  const popularCities: string = `https://api.comparatrip.eu/cities/popular/5`;
+  const popularCitiesFrom: string = `https://api.comparatrip.eu/cities/popular/from/${fromCityInputValue}/5 `;
   /*
   API Request for the first input, for the departure location
   Each time the input value change, the API is called to reload the list of locations that match with what the user enters 
   */
 
-  useEffect(() => {
+  useEffect((): void => {
     const apiCall = async () => {
       if (fromCityInputValue.length === 0) {
         await axios.get(popularCities).then((res) => setFromCities(res.data));
@@ -57,7 +56,7 @@ function App() {
   the user enters 
   */
 
-  useEffect(() => {
+  useEffect((): void => {
     const apiCall = async () => {
       if (toCityInputValue.length === 0 && fromCityInputValue.length >= 1) {
         await axios.get(popularCitiesFrom).then((res) => setToCities(res.data));
@@ -110,7 +109,7 @@ function App() {
               id=""
               placeholder="From: City, Station or Airport"
               value={fromCityInputValue}
-              onChange={(e) => {
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setFromCityInputValue(e.target.value);
                 searchFrom(e.target.value);
               }}
@@ -152,7 +151,7 @@ function App() {
               id=""
               placeholder="To: City, Station or Airport"
               value={toCityInputValue}
-              onChange={(e) => {
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setToCityInputValue(e.target.value);
                 searchTo(e.target.value);
               }}
